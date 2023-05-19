@@ -114,9 +114,7 @@ public struct Variable: Equatable, Resolvable {
       #if os(Linux)
         return nil
       #else
-        if object.responds(to: Selector(bit)) {
-          return object.value(forKey: bit)
-        }
+        return nil
       #endif
     } else if let value = context as? DynamicMemberLookup {
       return value[dynamicMember: bit]
