@@ -111,7 +111,7 @@ public struct Variable: Equatable, Resolvable {
     } else if let string = context as? String {
       return resolve(bit: bit, collection: string)
     } else if let object = context as? NSObject {  // NSKeyValueCoding
-      #if os(Linux || Windows)
+      #if os(Windows)
         return nil
       #else
         if object.responds(to: Selector(bit)) {
